@@ -163,6 +163,7 @@ bash dcos_generate_config.sh --postflight && wait
 
 
 ssh -T root@${storageIpArr[1]//\"/}<< EOSSH
+yum install -y nfs-utils
 mkdir -p /nfsdir
 mkdir -p /nfsdir/bundle
 mkdir -p /nfsdir/exe
