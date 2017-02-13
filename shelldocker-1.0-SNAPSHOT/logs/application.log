@@ -1,0 +1,5 @@
+2017-02-12 23:36:19,908 [INFO] from application in main - ApplicationTimer demo: Starting application at 2017-02-13T04:36:19.832Z.
+2017-02-12 23:36:19,935 [INFO] from play.api.Play in main - Application started (Prod)
+2017-02-12 23:36:20,261 [INFO] from play.core.server.NettyServer in main - Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+2017-02-12 23:36:26,783 [DEBUG] from application in application-akka.actor.default-dispatcher-3 - page loaded
+2017-02-12 23:36:33,140 [INFO] from application in Thread-7 - ApplicationTimer demo: Stopping application at 2017-02-13T04:36:33.140Z after 14s.

@@ -1,0 +1,142 @@
+{
+
+  "volumes": null,
+
+  "id": "/chronos",
+
+  "cmd": "chronos run_jar --master zk://master.mesos:2181/mesos --zk_hosts master.mesos:2181 --http_port $PORT0 --mesos_framework_name chronos --hostname $HOST      --cassandra_port 9042    --cassandra_ttl 31536000    --decline_offer_duration 5000   --disable_after_failures 0   --failover_timeout 604800   --failure_retry 60000     --graphite_reporting_interval 60             --mesos_task_cpu 0.1   --mesos_task_disk 256   --mesos_task_mem 128   --min_revive_offers_interval 5000    --reconciliation_interval 600    --schedule_horizon 60      --task_epsilon 60    
+
+  "args": null,
+
+  "user": null,
+
+  "env": {
+
+    "NO_OP": ""
+
+  },
+
+  "instances": 1,
+
+  "cpus": 1,
+
+  "mem": 1024,
+
+  "disk": 0,
+
+  "gpus": 0,
+
+  "executor": null,
+
+  "constraints": null,
+
+  "fetch": null,
+
+  "storeUrls": null,
+
+  "backoffSeconds": 1,
+
+  "backoffFactor": 1.15,
+
+  "maxLaunchDelaySeconds": 3600,
+
+  "container": {
+
+    "docker": {
+
+      "image": "docker.io/mesosphere/chronos:chronos-2.4.0-0.1.20150828104228.ubuntu1404-mesos-0.23.0-1.0.ubuntu1404",
+
+      "forcePullImage": false,
+
+      "privileged": false,
+
+      "network": "HOST"
+
+    }
+
+  },
+
+  "healthChecks": [
+
+    {
+
+      "protocol": "HTTP",
+
+      "path": "/",
+
+      "gracePeriodSeconds": 300,
+
+      "intervalSeconds": 60,
+
+      "timeoutSeconds": 20,
+
+      "maxConsecutiveFailures": 2,
+
+      "ignoreHttp1xx": false
+
+    }
+
+ ],
+
+  "readinessChecks": null,
+
+  "dependencies": null,
+
+  "upgradeStrategy": {
+
+    "minimumHealthCapacity": 1,
+
+    "maximumOverCapacity": 1
+
+  },
+
+  "labels": {
+
+    "DCOS_PACKAGE_RELEASE": "1",
+
+    "DCOS_SERVICE_SCHEME": "http",
+
+    "DCOS_PACKAGE_SOURCE": "https://universe.mesosphere.com/repo",
+
+    "DCOS_PACKAGE_METADATA": "eyJwYWNrYWdpbmdWZXJzaW9uIjoiMi4wIiwibmFtZSI6ImNocm9ub3MiLCJ2ZXJzaW9uIjoiMi40LjAiLCJtYWludGFpbmVyIjoic3VwcG9ydEBtZXNvc3BoZXJlLmlvIiwiZGVzY3JpcHRpb24iOiJBIGZhdWx0IHRvbGVyYW50IGpvYiBzY2hlZHVsZXIgZm9yIE1lc29zIHdoaWNoIGhhbmRsZXMgZGVwZW5kZW5jaWVzIGFuZCBJU084NjAxIGJhc2VkIHNjaGVkdWxlcy4iLCJ0YWdzIjpbImNyb24iLCJhbmFseXRpY3MiLCJiYXRjaCJdLCJzZWxlY3RlZCI6dHJ1ZSwic2NtIjoiaHR0cHM6Ly9naXRodWIuY29tL21lc29zL2Nocm9ub3MuZ2l0IiwiZnJhbWV3b3JrIjp0cnVlLCJwcmVJbnN0YWxsTm90ZXMiOiJXZSByZWNvbW1lbmQgYSBtaW5pbXVtIG9mIG9uZSBub2RlIHdpdGggYXQgbGVhc3QgMSBDUFUgYW5kIDJHQiBvZiBSQU0gYXZhaWxhYmxlIGZvciB0aGUgQ2hyb25vcyBTZXJ2aWNlLiIsInBvc3RJbnN0YWxsTm90ZXMiOiJDaHJvbm9zIERDT1MgU2VydmljZSBoYXMgYmVlbiBzdWNjZXNzZnVsbHkgaW5zdGFsbGVkIVxuXG5cdERvY3VtZW50YXRpb246IGh0dHA6Ly9tZXNvcy5naXRodWIuaW8vY2hyb25vc1xuXHRJc3N1ZXM6IGh0dHBzOi8vZ2l0aHViLmNvbS9tZXNvcy9jaHJvbm9zL2lzc3VlcyIsInBvc3RVbmluc3RhbGxOb3RlcyI6IlRoZSBDaHJvbm9zIERDT1MgU2VydmljZSBoYXMgYmVlbiB1bmluc3RhbGxlZCBhbmQgd2lsbCBubyBsb25nZXIgcnVuLlxuUGxlYXNlIGZvbGxvdyB0aGUgaW5zdHJ1Y3Rpb25zIGF0IGh0dHBzOi8vZG9jcy5tZXNvc3BoZXJlLmNvbS9jdXJyZW50L3VzYWdlL3NlcnZpY2UtZ3VpZGVzL2Nocm9ub3MvI3VuaW5zdGFsbCB0byBjbGVhbiB1cCBhbnkgcGVyc2lzdGVkIHN0YXRlLiIsImxpY2Vuc2VzIjpbeyJuYW1lIjoiQXBhY2hlIExpY2Vuc2UgVmVyc2lvbiAyLjAiLCJ1cmwiOiJodHRwczovL2dpdGh1Yi5jb20vbWVzb3MvY2hyb25vcy9ibG9iL21hc3Rlci9MSUNFTlNFIn1dLCJpbWFnZXMiOnsiaWNvbi1zbWFsbCI6Imh0dHBzOi8vZG93bmxvYWRzLm1lc29zcGhlcmUuY29tL3VuaXZlcnNlL2Fzc2V0cy9pY29uLXNlcnZpY2UtY2hyb25vcy1zbWFsbC5wbmciLCJpY29uLW1lZGl1bSI6Imh0dHBzOi8vZG93bmxvYWRzLm1lc29zcGhlcmUuY29tL3VuaXZlcnNlL2Fzc2V0cy9pY29uLXNlcnZpY2UtY2hyb25vcy1tZWRpdW0ucG5nIiwiaWNvbi1sYXJnZSI6Imh0dHBzOi8vZG93bmxvYWRzLm1lc29zcGhlcmUuY29tL3VuaXZlcnNlL2Fzc2V0cy9pY29uLXNlcnZpY2UtY2hyb25vcy1sYXJnZS5wbmcifX0=",
+
+    "DCOS_PACKAGE_REGISTRY_VERSION": "2.0",
+
+    "DCOS_SERVICE_NAME": "chronos",
+
+    "DCOS_PACKAGE_FRAMEWORK_NAME": "chronos",
+
+    "DCOS_SERVICE_PORT_INDEX": "0",
+
+    "DCOS_PACKAGE_VERSION": "2.4.0",
+
+    "DCOS_PACKAGE_NAME": "chronos",
+
+    "DCOS_PACKAGE_IS_FRAMEWORK": "true"
+
+  },
+
+  "acceptedResourceRoles": null,
+
+  "residency": null,
+
+  "secrets": null,
+
+  "taskKillGracePeriodSeconds": null,
+
+  "portDefinitions": [
+
+    {
+
+      "protocol": "tcp",
+
+      "port": 10000
+
+    }
+
+  ],
+
+  "requirePorts": false
+
+}
+
