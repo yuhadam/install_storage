@@ -179,7 +179,7 @@ sed -i "s/daemon/daemon --insecure-registry ${masterIpArr[1]//\"/}:5000 /g" /etc
 systemctl daemon-reload
 systemctl restart docker
 sleep 10s
-docker run --restart=always -d -p 5000:5000 -e standalone=True -e disable_token_auth=True -v /tmp/registry/:/var/lib/registry/ --name registry registry:2
+docker run --restart=always -d -p 5000:5000 -e standalone=True -e disable_token_auth=True -v /opt/registry/:/var/lib/registry/ --name registry registry:2
 
 cd /root/
 git clone http://www.github.com/ichthysngs/installserver
